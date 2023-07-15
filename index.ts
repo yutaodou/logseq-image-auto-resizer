@@ -1,5 +1,6 @@
 import "@logseq/libs";
 import { BlockEntity, SettingSchemaDesc } from "@logseq/libs/dist/LSPlugin.user";
+import { parseMarkdownImage, isSized } from "./src/markdownImage";
 
 const settings: SettingSchemaDesc[] = [
   {
@@ -19,40 +20,6 @@ const settings: SettingSchemaDesc[] = [
 ];
 logseq.useSettingsSchema(settings);
 
-interface MarkdownImage {
-  markdown: string;
-  title: string;
-  link: string;
-  width?: string;
-  height?: string;
-}
-
-var parseMarkdownImage = (markdown: string): MarkdownImage | null => {
-  const regex = /^!\[(.*?)\]\((.*?)\)(\{(.*?)\})?$/;
-  const match = markdown.match(regex);
-  if (!match) {
-    return null;
-  }
-
-  const prop = match[3] || "";
-  const properties = prop
-    .split(":")
-    .map((pair) => pair.toLowerCase().trim())
-    .reduce((agg, curr) => {
-      const [key, value] = curr.split(/\s+/);
-      agg[key] = value;
-      return agg;
-    }, {});
-
-  return {
-    markdown: match[0],
-    title: match[1],
-    link: match[2],
-    width: properties["width"],
-    height: properties["height"],
-  };
-};
-
 var lastSavedBlock = null;
 
 const resizeImage = (block: BlockEntity) => {
@@ -70,10 +37,6 @@ const resizeImage = (block: BlockEntity) => {
 
   var newContent = `${block.content}{${size}}`;
   logseq.Editor.updateBlock(block.uuid, newContent);
-};
-
-const isSized = (image: MarkdownImage): boolean => {
-  return !!image.width || !!image.height;
 };
 
 const main = async () => {
