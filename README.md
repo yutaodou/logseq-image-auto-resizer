@@ -1,4 +1,4 @@
-# Logseq Automatic Image Resizer
+# Logseq image auto resizer
 A plugin to automatically resize image to your preferred size
 
 ## Development

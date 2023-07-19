@@ -1,6 +1,6 @@
 import "@logseq/libs";
 import { BlockEntity, SettingSchemaDesc } from "@logseq/libs/dist/LSPlugin.user";
-import { parseMarkdownImage, isSized } from "./src/markdownImage";
+import { isSized, parseMarkdownImage } from "./src/markdownImage";
 
 const settings: SettingSchemaDesc[] = [
   {
@@ -23,7 +23,9 @@ logseq.useSettingsSchema(settings);
 var lastSavedBlock = null;
 
 const resizeImage = (block: BlockEntity) => {
-  console.log(`Resizing block ${block.uuid} with content: ${block.content}`);
+  if (!logseq.settings?.defaultWidth && !logseq.settings?.defaultHeight) {
+    return;
+  }
 
   const dimension = {
     width: logseq.settings?.defaultWidth,
@@ -34,6 +36,8 @@ const resizeImage = (block: BlockEntity) => {
     .filter(([_, value]) => value)
     .map(([key, value]) => `:${key} ${value}`)
     .join(",");
+
+  console.log(`Resizing block ${block.uuid} with content: ${block.content} to ${size}`);
 
   var newContent = `${block.content}{${size}}`;
   logseq.Editor.updateBlock(block.uuid, newContent);
