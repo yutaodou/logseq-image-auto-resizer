@@ -1,6 +1,6 @@
 {
   "name": "logseq-image-auto-resizer",
-  "version": "v0.2",
+  "version": "v0.3",
   "description": "A plugin to automatically resize image. ",
   "main": "dist/index.html",
   "targets": {
@@ -8,8 +8,8 @@
   },
   "scripts": {
     "test": "jest --coverage",
-    "build": "parcel build --no-source-maps index.html --public-url ./",
-    "dev": "parcel build --no-optimize index.html --public-url ./"
+    "build": "rm -rf dist && parcel build --no-source-maps index.html --public-url ./",
+    "dev": "rm -rf dist && parcel build --no-optimize index.html --public-url ./"
   },
   "keywords": [],
   "author": "Yutao Dou",
