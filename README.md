@@ -2,7 +2,7 @@
 A plugin to automatically resize image to your preferred size
 
 ## Usage
-By default, resizer sets image default width & height to 800px. To change the default size, go to Settings -> Plugins -> Logseq image auto resize.
+By default, resizer sets image default width & height to 800px. To change the default size, go to `Settings -> Plugins -> Logseq image auto resizer`.
 
 ## Development
 1.  Fork the repo.

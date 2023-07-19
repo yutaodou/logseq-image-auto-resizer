@@ -2,6 +2,8 @@ import "@logseq/libs";
 import { BlockEntity, SettingSchemaDesc } from "@logseq/libs/dist/LSPlugin.user";
 import { isSized, parseMarkdownImage } from "./src/markdownImage";
 
+const DEFAULT_SIZE = 800;
+
 const settings: SettingSchemaDesc[] = [
   {
     key: "defaultWidth",
@@ -28,8 +30,8 @@ const resizeImage = (block: BlockEntity) => {
   }
 
   const dimension = {
-    width: logseq.settings?.defaultWidth,
-    height: logseq.settings?.defaultHeight,
+    width: logseq.settings?.defaultWidth || DEFAULT_SIZE,
+    height: logseq.settings?.defaultHeight || DEFAULT_SIZE,
   };
 
   const size = Object.entries(dimension)
