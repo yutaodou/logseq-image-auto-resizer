@@ -24,7 +24,7 @@ logseq.useSettingsSchema(settings);
 
 var lastSavedImageBlock = null;
 
-const resizeImage = (block: BlockEntity) => {
+const resizeImage = async (block: BlockEntity) => {
   if (!logseq.settings?.defaultWidth && !logseq.settings?.defaultHeight) {
     return;
   }
@@ -59,7 +59,7 @@ const main = async () => {
         return;
       }
 
-      resizeImage(block);
+      await resizeImage(block);
     } else if (e.txMeta?.outlinerOp === "saveBlock") {
       const block = e.blocks[0];
 

@@ -1,7 +1,7 @@
 export interface MarkdownImage {
   markdown: string;
   title: string;
-  link: string;
+  path: string;
   width?: string;
   height?: string;
 }
@@ -26,7 +26,7 @@ export const parseMarkdownImage = (markdown: string): MarkdownImage | null => {
   return {
     markdown: match[0],
     title: match[1],
-    link: match[2],
+    path: match[2],
     width: properties["width"],
     height: properties["height"],
   };
