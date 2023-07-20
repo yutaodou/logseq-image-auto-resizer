@@ -22,7 +22,7 @@ const settings: SettingSchemaDesc[] = [
 ];
 logseq.useSettingsSchema(settings);
 
-var lastSavedBlock = null;
+var lastSavedImageBlock = null;
 
 const resizeImage = (block: BlockEntity) => {
   if (!logseq.settings?.defaultWidth && !logseq.settings?.defaultHeight) {
@@ -47,8 +47,13 @@ const resizeImage = (block: BlockEntity) => {
 
 const main = async () => {
   logseq.DB.onChanged(async (e) => {
-    if (e.txMeta?.outlinerOp === "insertBlocks") {
-      const block = await logseq.Editor.getBlock(lastSavedBlock);
+    if (e.txMeta?.outlinerOp !== "saveBlock") {
+      const current = await logseq.Editor.getCurrentBlock();
+      if (current?.uuid === lastSavedImageBlock) {
+        return;
+      }
+
+      const block = await logseq.Editor.getBlock(lastSavedImageBlock);
       const image = parseMarkdownImage(block.content);
       if (!image || isSized(image)) {
         return;
@@ -60,7 +65,7 @@ const main = async () => {
 
       const image = parseMarkdownImage(block.content);
       if (image && !isSized(image)) {
-        lastSavedBlock = block.uuid;
+        lastSavedImageBlock = block.uuid;
       }
     }
   });
