@@ -5,7 +5,7 @@ describe("markdownImage", () => {
 
     expect(image.markdown).toEqual("![Screenshot.png](../assets/Screenshot.png)");
     expect(image.title).toEqual("Screenshot.png");
-    expect(image.link).toEqual("../assets/Screenshot.png");
+    expect(image.path).toEqual("../assets/Screenshot.png");
     expect(image.height).toBeUndefined();
     expect(image.width).toBeUndefined();
   });
@@ -16,7 +16,7 @@ describe("markdownImage", () => {
     console.log(JSON.stringify(image));
     expect(image.markdown).toEqual("![Screenshot.png](../assets/Screenshot.png){:width 200, :height 300}");
     expect(image.title).toEqual("Screenshot.png");
-    expect(image.link).toEqual("../assets/Screenshot.png");
+    expect(image.path).toEqual("../assets/Screenshot.png");
     expect(image.height).toEqual("300");
     expect(image.width).toEqual("200");
   });
@@ -38,7 +38,7 @@ describe("markdownImage", () => {
     const base = {
       markdown: "markdown",
       title: "title",
-      link: "link",
+      path: "link",
     };
     expect(isSized(base)).toBeFalsy();
     expect(isSized({ ...base, width: "100" })).toBeTruthy();
