@@ -1,3 +1,5 @@
+[:coffee: Get me a coffee](https://www.buymeacoffee.com/yutaodou) if you like this plugin!
+
 # Logseq image auto resizer
 A plugin to automatically resize image to your preferred size
 
