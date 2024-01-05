@@ -47,7 +47,7 @@ const resizeImage = async (block: BlockEntity) => {
 
 const main = async () => {
   logseq.DB.onChanged(async (e) => {
-    if (e.txMeta?.outlinerOp !== "saveBlock") {
+    if (e.txMeta?.outlinerOp === "insert-blocks") {
       const current = await logseq.Editor.getCurrentBlock();
       if (current?.uuid === lastSavedImageBlock) {
         return;
@@ -60,7 +60,7 @@ const main = async () => {
       }
 
       await resizeImage(block);
-    } else if (e.txMeta?.outlinerOp === "saveBlock") {
+    } else if (e.txMeta?.outlinerOp === "save-block") {
       const block = e.blocks[0];
 
       const image = parseMarkdownImage(block.content);
