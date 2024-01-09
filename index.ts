@@ -54,6 +54,10 @@ const main = async () => {
       }
 
       const block = await logseq.Editor.getBlock(lastSavedImageBlock);
+      if (!block) {
+        return;
+      }
+
       const image = parseMarkdownImage(block.content);
       if (!image || isSized(image)) {
         return;
