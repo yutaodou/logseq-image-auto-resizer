@@ -1,6 +1,15 @@
-[:coffee: Get me a coffee](https://www.buymeacoffee.com/yutaodou) if you like this plugin!
+## If you ❤ what i'm doing - you can support my work! ☕
 
-# Logseq image auto resizer
+<a href="https://www.buymeacoffee.com/yutaodou"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=yutaodou&button_colour=FFDD00&font_colour=000000&font_family=Lato&outline_colour=000000&coffee_colour=ffffff" /></a>
+
+
+<h1 align="center">Logseq image auto resizer</h1>
+<p align="center">
+    <a href="https://github.com/yutaodou/logseq-image-auto-resizer">
+        <img src="https://raw.githubusercontent.com/yutaodou/logseq-image-auto-resizer/main/icon.png" alt="logo" width="128" height="128" />
+    </a>
+</p>
+
 A plugin to automatically resize image to your preferred size
 
 ## Usage
