@@ -1,6 +1,6 @@
 {
   "name": "logseq-image-auto-resizer",
-  "version": "v0.4.5",
+  "version": "v0.4.6",
   "description": "A plugin to automatically resize image. ",
   "main": "dist/index.html",
   "targets": {
@@ -36,6 +36,6 @@
   },
   "effective": true,
   "sponsors": [
-    "https://www.buymeacoffee.com/yutaodou"
+    "https://www.buymeacoffee.com/dytes"
   ]
 }
