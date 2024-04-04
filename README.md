@@ -1,6 +1,6 @@
 ## If you ❤ what i'm doing - you can support my work! ☕
 
-<a href="https://www.buymeacoffee.com/yutaodou"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=yutaodou&button_colour=FFDD00&font_colour=000000&font_family=Lato&outline_colour=000000&coffee_colour=ffffff" /></a>
+<a href="https://www.buymeacoffee.com/dytes"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=yutaodou&button_colour=FFDD00&font_colour=000000&font_family=Lato&outline_colour=000000&coffee_colour=ffffff" /></a>
 
 
 <h1 align="center">Logseq image auto resizer</h1>

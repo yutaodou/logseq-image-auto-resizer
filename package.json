@@ -1,6 +1,6 @@
 {
   "name": "logseq-image-auto-resizer",
-  "version": "v0.4.4",
+  "version": "v0.4.5",
   "description": "A plugin to automatically resize image. ",
   "main": "dist/index.html",
   "targets": {
